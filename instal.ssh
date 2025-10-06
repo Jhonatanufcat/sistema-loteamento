@@ -1,0 +1,19 @@
+#!/bin/bash
+echo "🚀 Instalando Sistema de Loteamento..."
+
+# Clonar repositório
+git clone https://github.com/Jhonatanufcat/sistema-loteamento.git
+cd sistema-loteamento
+
+# Instalar dependências
+composer install --no-dev --optimize-autoloader
+npm install && npm run build
+
+# Configurar ambiente
+cp .env.example .env
+php artisan key:generate
+
+echo "✅ Instalação concluída!"
+echo "📝 Configure o arquivo .env com suas credenciais"
+echo "🗄️  Execute: php artisan migrate"
+echo "🌐 Execute: php artisan serve"
